@@ -70,5 +70,5 @@ try {
 	// Get GetPrintedLabels
 	file_put_contents('GetPrintedLabels.pdf', $api->GetPrintedLabels(PrepareLabels($parcels)));
 }catch (Exception $e){
-    echo $e->getMessage();
+    print_r($e);
 }
