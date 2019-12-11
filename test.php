@@ -64,11 +64,21 @@ try {
 	
 	$parcels[] = $parcel;
 
-	// Get PrintLabels
-	file_put_contents('PrintLabels.pdf', $api->PrintLabels($parcels));
+	// First method is PrintLabels, which simply crate a label
+	$first_method = $api->PrintLabels($parcels);
+	print_r($first_method);	
 	
-	// Get GetPrintedLabels
-	file_put_contents('GetPrintedLabels.pdf', $api->GetPrintedLabels(PrepareLabels($parcels)));
+	// Second method is GetPrintedLabels
+	$second_method_prepare = $api->PrepareLabels($parcels);
+	print_r($second_method_prepare);	
+	
+	$second_method_labels = $api->GetPrintedLabels(array($second_method_prepare->PrepareLabelsResult->ParcelInfoList->ParcelInfo->ParcelId));
+	print_r($second_method_labels);
+	
+	// Third method is GetPrintData, for custom labels
+	$third_method = $api->GetPrintData($parcels);
+	print_r($third_method);
+	
 }catch (Exception $e){
     print_r($e);
 }

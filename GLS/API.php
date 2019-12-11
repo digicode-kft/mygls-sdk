@@ -63,10 +63,8 @@ class API {
 
 		$client = new \SoapClient($this->url, $this->url_options);
 		$response = $client->PrintLabels($request);
-		
-		if($response != null && count((array)$response->PrintLabelsResult->PrintLabelsError) == 0 && $response->PrintLabelsResult->Labels != ""){
-			return $response->PrintLabelsResult->Labels;
-		}
+
+		return $response;
 	}
 
 	public function PrepareLabels($parcels){
@@ -80,12 +78,11 @@ class API {
 		
 		$client = new \SoapClient($this->url,$this->url_options);
 		$response = $client->PrepareLabels($request);
-		
-		$parcelIdList = [];
-		if($response != null && count((array)$response->PrepareLabelsResult->PrepareLabelsError) == 0 && count((array)$response->PrepareLabelsResult->ParcelInfoList) > 0){
-			$parcelIdList[] = $response->PrepareLabelsResult->ParcelInfoList->ParcelInfo->ParcelId;
-		}
-		
+										 
+		return $response;
+	}
+
+	public function GetPrintedLabels($parcelIdList){
 		$getPrintedLabelsRequest = array(
 			'Username' => $this->username,
 			'Password' => $this->password,
@@ -93,18 +90,27 @@ class API {
 			'PrintPosition' => 1,
 			'ShowPrintDialog' => 0
 		);
-										 
-		return $getPrintedLabelsRequest;
-	}
-
-	public function GetPrintedLabels($getPrintedLabelsRequest){
+		
 		$request = array ("getPrintedLabelsRequest" => $getPrintedLabelsRequest);
 
-		$client = new \SoapClient($this->url,$this->url_options);
+		$client = new \SoapClient($this->url, $this->url_options);
 		$response = $client->GetPrintedLabels($request);
 		
-		if($response != null && count((array)$response->GetPrintedLabelsResult->GetPrintedLabelsError) == 0 && $response->GetPrintedLabelsResult->Labels != ""){
-			return $response->GetPrintedLabelsResult->Labels;
-		}
+		return $response;
+	}
+	
+	public function GetPrintData($parcels){
+		$getPrintDataRequest = array(
+			'Username' => $this->username,
+			'Password' => $this->password,
+			'ParcelList' => $parcels
+		);
+		
+		$request = array ("getPrintDataRequest" => $getPrintDataRequest );
+
+		$client = new \SoapClient($this->url, $this->url_options);
+		$response = $client->GetPrintData($request);
+		
+		return $response;
 	}
 }

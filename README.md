@@ -28,11 +28,12 @@ try {
 	// check in test.php
 	$parcels[] = $parcel;
 
-	// Get PrintLabels
-	file_put_contents('PrintLabels.pdf', $api->PrintLabels($parcels));
+	// First method is PrintLabels, which simply crate a label
+	$first_method = $api->PrintLabels($parcels);
+	print_r($first_method);	
 	
-	// Get GetPrintedLabels
-	file_put_contents('GetPrintedLabels.pdf', $api->GetPrintedLabels(PrepareLabels($parcels)));
+	...
+	// check in test.php
 }catch (Exception $e){
     print_r($e);
 }
