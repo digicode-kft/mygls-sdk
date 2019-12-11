@@ -1,9 +1,9 @@
 # mygls-sdk
-A simple wrapper for the GLS logistics SOAP API, it gives more flexibility then the [original](https://api.mygls.hu/) one.  Our company, the DigiCode Kft. using this package in custom system for printing the logistic labels with a [Zebra](https://www.digicode.hu/zebra-m1/cimke-vonalkod-nyomtato-c1) printer. But its also usable with [Honeywell](https://www.digicode.hu/honeywell-m4/cimke-vonalkod-nyomtato-c1), [Intermec](https://www.digicode.hu/intermec-m3/cimke-vonalkod-nyomtato-c1), [TSC](https://www.digicode.hu/tsc-m20/cimke-vonalkod-nyomtato-c1) or a classic printers, like HP, Konica, etc..
+A simple wrapper for the GLS logistics SOAP API, it gives more flexibility then the [original](https://api.mygls.hu/) one.  Our company, the DigiCode Kft. using this package in a custom system for printing the logistic labels with a [Zebra](https://www.digicode.hu/zebra-m1/cimke-vonalkod-nyomtato-c1) printer. But its also usable with [Honeywell](https://www.digicode.hu/honeywell-m4/cimke-vonalkod-nyomtato-c1), [Intermec](https://www.digicode.hu/intermec-m3/cimke-vonalkod-nyomtato-c1), [TSC](https://www.digicode.hu/tsc-m20/cimke-vonalkod-nyomtato-c1) or any classic printers, like HP, Konica, etc..
 
 ## Usage
 
-First of all you must check the available methods for creating and printing label. 
+First of all you must check the available methods for creating and printing labels. 
 
 > If your company need any [etiquette label](https://www.digicode.hu/cimke-kellekanyag-c8/tekercses-cimke-c810) feel free to contact with us.
 
