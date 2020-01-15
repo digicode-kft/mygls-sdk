@@ -5,7 +5,7 @@ A simple wrapper for the GLS logistics SOAP API, it gives more flexibility then 
 
 First of all you must check the available methods for creating and printing labels. 
 
-> If your company need any [etiquette label](https://www.digicode.hu/cimke-kellekanyag-c8/tekercses-cimke-c810) feel free to contact with us.
+> If your company need any [etiquette label](https://www.digicode.hu/ontapados-etikett-cimke-c8) feel free to contact with us.
 
 ```php
 require __DIR__ . '/GLS/API.php';
